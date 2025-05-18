@@ -1,0 +1,38 @@
+@charset "utf-8";
+/* CSS Document */
+ .container {
+     display: flex;
+     height: 100%;
+}
+ .left-panel {
+     width: 300px;
+     min-width: 200px;
+     overflow: hidden;
+}
+/* 左侧引用框架便于引用外部文件，使主页代码简介易读 */
+ .left-panel iframe {
+     width: 100%;
+     height: 100%;
+     border: none;
+}
+ .right-panel {
+     flex: 1;
+     border: none;
+     overflow-y: auto;
+}
+/* 框架的高度自适应监听 */
+ .video {
+     height: calc(100vh - 0px);
+     position: relative;
+}
+ .video iframe, .video object, .video embed {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+}
+ ::-webkit-scrollbar {
+     display: none;
+}
+

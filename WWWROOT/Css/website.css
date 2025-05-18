@@ -1,0 +1,21 @@
+@charset "utf-8";/* CSS Document */
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+}
+ body, html {
+     height: 100%;
+}
+/* 响应式设计 - 小屏幕时改为上下布局 */
+@media (max-width: 768px) 
+{
+.container {
+         flex-direction: column;
+    }
+.left-panel {
+         width: 100%;
+         border-right: none;
+         border-bottom: 1px solid #ccc;
+    }
+}

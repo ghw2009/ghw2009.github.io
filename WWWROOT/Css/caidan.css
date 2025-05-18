@@ -1,0 +1,118 @@
+/* 基础样式 */
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+}
+ body {
+     font-family: 'Arial', sans-serif;
+     font-size:15px;
+     padding: 10px;
+     background-color: #0c1e35;
+    /* 菜单背景颜色 */
+}
+/* 左侧头部样式 */
+ .sidebar-header {
+     height: 60px;
+     min-height: 50px;
+     display: flex;
+     font-size:18px;
+     font-weight: bold;
+     align-items: center;
+     padding: 0px 10px;
+     color: #D9D9D9;
+    /* 字体颜色白色+15%灰 */
+     border-bottom: 1px solid rgba(83, 93, 125, 0.3);
+    /* 下划线 */
+}
+/* 导航菜单容器 */
+ .vertical-menu {
+     width: 250px;
+     border-radius: 5px;
+    /* 圆角 */
+     overflow: hidden;
+}
+/* 菜单列表 */
+ .vertical-menu ul {
+     list-style: none;
+}
+/* 菜单项 */
+ .vertical-menu li {
+     position: relative;
+}
+/* 菜单链接 */
+ .vertical-menu li > a {
+     display: block;
+    /* 块级元素独占一行 */
+     padding: 10px 10px 10px 30px;/* 不可折叠菜单标签的缩进 */
+     color: #D9D9D9;
+     text-decoration: none;
+     transition: all 0.3s;
+}
+/* 菜单链接悬停效果 */
+ .vertical-menu li > a:hover {
+    color: #FFF;
+}
+/* 一级菜单单选按钮 */
+ .vertical-menu > ul > li > input[type="radio"] {
+     position: absolute;
+     opacity: 0;
+     z-index: -1;
+}
+/* 其他层级使用checkbox */
+ .vertical-menu ul ul li > input[type="checkbox"] {
+     position: absolute;
+     opacity: 0;
+     z-index: -1;
+}
+/* 可折叠菜单标签 */
+ .vertical-menu label {
+     display: block;
+     padding:10px 10px 10px 30px;/* 可折叠菜单标签的缩进 */
+     color: #D9D9D9;
+     cursor: pointer;
+     position: relative;
+     transition: all 0.3s;
+}
+ .vertical-menu label:hover {
+     color: #FFF;
+}
+/* 折叠/展开指示图标 */
+ .vertical-menu label::after {
+     content: '▶';
+     position: absolute;
+     right: 15px;
+     top: 50%;
+     transform: translateY(-50%);
+     font-size: 12px;
+     transition: all 0.3s;
+     color: #6c757d;
+}
+/* 展开状态图标变化 */
+ .vertical-menu input[type="radio"]:checked + label::after, .vertical-menu input[type="checkbox"]:checked + label::after {
+     transform: translateY(-50%) rotate(90deg);
+}
+/* 子菜单样式 */
+ .vertical-menu ul ul {
+     max-height: 0;
+     overflow: hidden;
+     transition: max-height 0.3s ease-out;
+}
+/* 展开的子菜单 */
+ .vertical-menu input[type="radio"]:checked ~ ul, .vertical-menu input[type="checkbox"]:checked ~ ul {
+     max-height:2500px;/* 可折叠子菜单的高度设置 */
+     transition: max-height 0.5s ease-in;
+}
+/* 多级缩进 */
+ .vertical-menu ul ul li a, .vertical-menu ul ul li label {
+     padding-left: 60px;
+}
+ .vertical-menu ul ul ul li a, .vertical-menu ul ul ul li label {
+     padding-left: 80px;
+}
+/* 响应式设计 */
+ @media (max-width: 768px) {
+     .vertical-menu {
+         width: 100%;
+    }
+}

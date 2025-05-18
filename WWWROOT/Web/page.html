@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0; /* 可选：设置背景颜色 */
+        }
+        .image-container {
+            max-width: 100%; /* 图片容器的最大宽度 */
+            height: auto; /* 高度自动调整 */
+            overflow: hidden; /* 隐藏超出容器的内容 */
+        }
+        .image-container img {
+            max-width: 100%; /* 图片最大宽度为容器的100% */
+            height: auto; /* 高度自动调整以保持宽高比 */
+            border: 1px solid #ccc; /* 可选：为图片添加边框 */
+        }
+    </style>
+</head>
+<body>
+<div class="image-container" id="imageContainer"></div>
+<script src="../Js/img.js"></script>
+</body>
+</html>

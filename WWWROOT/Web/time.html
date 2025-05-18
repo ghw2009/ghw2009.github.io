@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时间间隔计算器</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            margin: 0;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        input[type="date"] {
+            padding: 0.8rem;
+            border: none;
+            border-radius: 8px;
+            margin: 1rem 0;
+            font-size: 1.1rem;
+            background: rgba(255, 255, 255, 0.9);
+            max-width: 300px;
+        }
+
+        .result {
+            margin-top: 2rem;
+            font-size: 1.5rem;
+            line-height: 2rem;
+        }
+
+        .highlight {
+            color: #f1c40f;
+            font-weight: bold;
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>确诊日期</h1>
+        <input 
+            type="date" 
+            id="targetDate" 
+            max="2025-05-18"  
+            onchange="calculateDuration()"
+        >
+        <div class="result">
+            <p>已确诊</p>
+            <span class="highlight" id="months">0</span> 个月<br>
+            <span class="highlight" id="days">0</span> 天
+        </div>
+    </div>
+
+    <script>
+        function calculateDuration() {
+            // 获取用户输入的日期（示例当前时间为2025-05-18）
+            const targetDate = new Date(document.getElementById('targetDate').value);
+            const currentDate = new Date('2025-05-18'); // 实际使用时可换成 new Date()
+
+            // 验证日期有效性
+            if (isNaN(targetDate) || targetDate > currentDate) {
+                alert("请选择有效的过去日期");
+                return;
+            }
+
+            // 计算完整月份差
+            let months = (currentDate.getFullYear() - targetDate.getFullYear()) * 12;
+            months -= targetDate.getMonth() + 1;
+            months += currentDate.getMonth() + 1;
+
+            // 调整天数差异
+            const currentDay = currentDate.getDate();
+            const targetDay = targetDate.getDate();
+            if (currentDay < targetDay) {
+                months--;
+                const tempDate = new Date(currentDate);
+                tempDate.setMonth(tempDate.getMonth() - 1);
+                tempDate.setDate(targetDay);
+                const daysDiff = Math.floor((currentDate - tempDate) / (1000 * 60 * 60 * 24));
+                document.getElementById('days').textContent = daysDiff;
+            } else {
+                document.getElementById('days').textContent = currentDay - targetDay;
+            }
+
+            // 显示结果
+            document.getElementById('months').textContent = months;
+        }
+    </script>
+</body>
+</html>

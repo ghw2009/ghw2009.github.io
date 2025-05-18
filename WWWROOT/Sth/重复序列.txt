@@ -1,0 +1,10 @@
+<li><a href="page.html?image=../../2020/01/20200114胸部普放.jpg" target="main">2020.01.14&nbsp;&nbsp;胸部普放</a></li>
+
+<li><a href="page.html?image=../../2020/01/20200116术后分子病理01.jpg&image=../../2020/01/20200116术后分子病理02.jpg&image=../../2020/01/20200116术后分子病理03.jpg&image=../../2020/01/20200116术后分子病理04.jpg&image=../../2020/01/20200116术后分子病理05.jpg&image=../../2020/01/20200116术后分子病理06.jpg" target="main">2020.01.16&nbsp;&nbsp;术后分子病理</a></li>
+
+<li><input type="checkbox" id="item-2-2"><label for="item-2-2">2019.08.21&nbsp;&nbsp;质子重离子门诊</label>
+<ul>
+<li><a href="page.html?image=../../2019/20190821质子重离子门诊病历01.jpg&image=../../2019/20190821质子重离子门诊病历02.jpg" target="main">2019.08.21&nbsp;&nbsp;门诊病历</a></li>
+<li><a href="page.html?image=../../2019/20190919质子重离子MDT会诊报告01.jpg&image=../../2019/20190919质子重离子MDT会诊报告02.jpg&image=../../2019/20190919质子重离子MDT会诊报告03.jpg&image=../../2019/20190919质子重离子MDT会诊报告04.jpg" target="main">2019.09.19&nbsp;&nbsp;MDT会诊</a></li>  
+</ul>
+</li>
