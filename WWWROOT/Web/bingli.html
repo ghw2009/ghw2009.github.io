@@ -1,307 +1,296 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>电子病历系统</title>
-    <style>
-        /* 重置浏览器默认样式 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>电子病历系统</title>
+<style>
+/* 重置浏览器默认样式 */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+/* 主容器样式 */
+.container {
+	width: 90%;
+	margin: 20px auto;
+	padding: 20px;
+	background: #f8f9fa;
+}
+/* 病历卡标题 */
+.medical-record-title {
+	text-align: center;
+	padding: 25px 0;
+	font-size: 28px;
+	color: #2c3e50;
+	border-bottom: 2px solid #3498db;
+	margin-bottom: 30px;
+}
+/* 基本信息表格 */
+#basic-info {
+	width: 100%;
+	border: 1px solid #ddd;
+	border-collapse: separate; /* 兼容旧版IE */
+	border-spacing: 0;
+	margin-bottom: 30px;
+	background: white;
+}
+#basic-info td {
+	padding: 15px;
+	border-right: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	vertical-align: middle;
+}
+#basic-info td:last-child {
+	border-right: none;
+}
+#basic-info tr:last-child td {
+	border-bottom: none;
+}
+/* 病史详情表格 */
+#medical-history {
+	width: 100%;
+	border: 1px solid #ddd;
+	border-collapse: collapse;
+	background: white;
+}
+#medical-history th, #medical-history td {
+	padding: 15px;
+	border: 1px solid #ddd;
+	text-align: left;
+}
+#medical-history th {
+	background: #3498db;
+	color: white;
+	font-weight: bold;
+}
 
-        /* 主容器样式 */
-        .container {
-            width: 90%;
-            margin: 20px auto;
-            padding: 20px;
-            background: #f8f9fa;
-        }
-
-        /* 病历卡标题 */
-        .medical-record-title {
-            text-align: center;
-            padding: 25px 0;
-            font-size: 28px;
-            color: #2c3e50;
-            border-bottom: 2px solid #3498db;
-            margin-bottom: 30px;
-        }
-
-        /* 基本信息表格 */
-        #basic-info {
-            width: 100%;
-            border: 1px solid #ddd;
-            border-collapse: separate; /* 兼容旧版IE */
-            border-spacing: 0;
-            margin-bottom: 30px;
-            background: white;
-        }
-
-        #basic-info td {
-            padding: 15px;
-            border-right: 1px solid #ddd;
-            border-bottom: 1px solid #ddd;
-            vertical-align: middle;
-        }
-
-        #basic-info td:last-child {
-            border-right: none;
-        }
-
-        #basic-info tr:last-child td {
-            border-bottom: none;
-        }
-
-        /* 病史详情表格 */
-        #medical-history {
-            width: 100%;
-            border: 1px solid #ddd;
-            border-collapse: collapse;
-            background: white;
-        }
-
-        #medical-history th,
-        #medical-history td {
-            padding: 15px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
-
-        #medical-history th {
-            background: #3498db;
-            color: white;
-            font-weight: bold;
-        }
-
-        /* 兼容旧版IE的特别处理 */
-        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-            #basic-info {
-                border-collapse: collapse;
-            }
-        }
-    </style>
+/* 兼容旧版IE的特别处理 */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+#basic-info {
+	border-collapse: collapse;
+}
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="medical-record-title">电子病历卡</div>
-        
-        <!-- 基本信息表格 -->
-        <table id="basic-info">
-            <colgroup>
-                <col width="25%">
-                <col width="25%">
-                <col width="25%">
-                <col width="25%">
-            </colgroup>
-            <tbody>
-                <tr>
-                    <td>姓　　名：</td>
-                    <td>张文梅</td>
-                    <td>性　　别：</td>
-                    <td>女</td>
-                </tr>
-                <tr>
-                    <td>年　　龄：</td>
-                    <td>43&nbsp;</td>
-                    <td>民　　族：</td>
-                    <td>汉</td>
-                </tr>
-                <tr>
-                    <td>确诊日期：</td>
-                    <td>2018.11.14</td>
-                    <td>病理活检：</td>
-                    <td>气管镜</td>
-                </tr>
-                <tr>
-                    <td>病　　理：</td>
-                    <td>肺腺癌</td>
-                    <td>分　　期：</td>
-                    <td>Ⅳ期</td>
-                </tr>
-                <tr>
-                    <td>基因检测：</td>
-                    <td colspan="3">EML4-ALK基因重排</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <!-- 病史详情表格 -->
-        <table id="medical-history">
-            <thead>
-                <tr>
-                    <th width="15%">日期</th>
-                    <th width="40%">诊断记录</th>
-                    <th width="25%">治疗方案</th>
-                    <th width="20%">备注</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>2018.12.14</td>
-                    <td>上海胸科医院气管镜活检确诊肺腺癌</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-				<tr>
-    <td>2018.12.14</td>
-    <td>上海胸科医院气管镜活检确诊肺腺癌 </td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>2018.12.19</td>
-    <td>基因检测结果EML4-ALK融合突变 </td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>2018.12.19</td>
-    <td>开始服用克唑替尼(2018.12.19-2019.2.24)</td>
-    <td>克唑替尼 </td>
-    <td>克唑替尼2个月7天 </td>
-  </tr>
-  <tr>
-    <td>2019.2.26</td>
-    <td>开始服用阿来替尼 <br>
-      克唑替尼效果良好，主动换药 </td>
-    <td>阿来替尼 </td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>2019.10.12</td>
-    <td>上海全景PET/CT，胸膜进展，其他相仿。 </td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>2019.11.15</td>
-    <td>上海胸科医院呼吸内科专家门诊： <br>
-      联合安罗替尼(用二停一：2019.11.15-2020.1.8)</td>
-    <td>阿来+安罗 </td>
-    <td>安罗替尼8周 </td>
-  </tr>
-  <tr>
-    <td>2020.1.8</td>
-    <td>术前停用阿来替尼(2019.2.26-2020.1.8)<a name="_GoBack"></a></td>
-    <td>&nbsp;</td>
-    <td>阿来替尼9个月10天 </td>
-  </tr>
-  <tr>
-    <td>2020.1.10</td>
-    <td>上海胸科医院肿瘤外科手术治疗 </td>
-    <td>胸腔镜手术 </td>
-    <td>右肺上叶切除 </td>
-  </tr>
-  <tr>
-    <td>2020.2.7</td>
-    <td>术后基因检测结果EML4-ALK融合突变， <br>
-      未检测到耐药基因。 </td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>2020.2.19</td>
-    <td>术后转呼吸内科术后化疗，培美卡铂方案4次 <br>
-      4周一次（2020.2.19-2020.6.8） </td>
-    <td>化疗 </td>
-    <td>化疗4个月 </td>
-  </tr>
-  <tr>
-    <td>2020.6.8</td>
-    <td>术后化疗结束，继续阿来替尼靶向治疗 </td>
-    <td>阿来替尼 </td>
-    <td>阿来替尼7.5个月 </td>
-  </tr>
+<div class="container">
+  <div class="medical-record-title">电子病历卡</div>
   
-  <tr>
-    <td>2021.6</td>
-    <td>肿标/CEA超出上限值缓慢升高&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;2021.8.24</td>
-    <td>&nbsp;上海全景PET/CT，纵隔4R高吸值，其他相仿。</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;2021.8.30</td>
-    <td>&nbsp;上海胸科医院EBUS，4R活检</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;2021.09.09</td>
-    <td>&nbsp;燃石基因检测，ALK融合，未检测到耐药点位</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;CEA继续缓慢增长</td>
-  </tr>
-  <tr>
-    <td>&nbsp;2021.11.09</td>
-    <td>&nbsp;华山医院射波刀治疗</td>
-    <td>&nbsp;射波刀</td>
-    <td>&nbsp;2021.12.27 CEA检测首次下降</td>
-  </tr>
-  <tr>
-    <td>&nbsp;2022.2.7</td>
-    <td>&nbsp;华山医院射波刀治疗/二次</td>
-    <td>&nbsp;射波刀</td>
-    <td>&nbsp;2022.4.4 CEA降低至正常范围</td>
-  </tr>
-  <tr>
-    <td>&nbsp;2022.11.2</td>
-    <td>&nbsp; 上海全景PET/CT，检查正常，无异常吸收值</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;2022.12.20</td>
-    <td>&nbsp;阿来替尼至今1394D，46M，3.8Y</td>
-    <td>&nbsp;阿来替尼</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-                <tr>
-                    <td>2022.12.20</td>
-                    <td>阿来替尼靶向治疗</td>
-                    <td>阿来替尼600mg bid</td>
-                    <td>持续用药中</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+  <!-- 基本信息表格 -->
+  <table id="basic-info">
+    <colgroup>
+    <col width="25%">
+    <col width="25%">
+    <col width="25%">
+    <col width="25%">
+    </colgroup>
+    <tbody>
+      <tr>
+        <td>姓　　名：</td>
+        <td>张文梅</td>
+        <td>性　　别：</td>
+        <td>女</td>
+      </tr>
+      <tr>
+        <td>年　　龄：</td>
+        <td>43&nbsp;</td>
+        <td>民　　族：</td>
+        <td>汉</td>
+      </tr>
+      <tr>
+        <td>确诊日期：</td>
+        <td>2018.11.14</td>
+        <td>病理活检：</td>
+        <td>气管镜</td>
+      </tr>
+      <tr>
+        <td>病　　理：</td>
+        <td>肺腺癌</td>
+        <td>分　　期：</td>
+        <td>Ⅳ期</td>
+      </tr>
+      <tr>
+        <td>基因检测：</td>
+        <td colspan="3">EML4-ALK基因重排</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <!-- 病史详情表格 -->
+  <table id="medical-history">
+    <thead>
+      <tr>
+        <th width="15%">日期</th>
+        <th width="40%">诊断记录</th>
+        <th width="25%">治疗方案</th>
+        <th width="20%">备注</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>2018.12.14</td>
+        <td>上海胸科医院气管镜活检确诊肺腺癌</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>2018.12.14</td>
+        <td>上海胸科医院气管镜活检确诊肺腺癌 </td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>2018.12.19</td>
+        <td>基因检测结果EML4-ALK融合突变 </td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>2018.12.19</td>
+        <td>开始服用克唑替尼(2018.12.19-2019.2.24)</td>
+        <td>克唑替尼 </td>
+        <td>克唑替尼2个月7天 </td>
+      </tr>
+      <tr>
+        <td>2019.2.26</td>
+        <td>开始服用阿来替尼 <br>
+          克唑替尼效果良好，主动换药 </td>
+        <td>阿来替尼 </td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>2019.10.12</td>
+        <td>上海全景PET/CT，胸膜进展，其他相仿。 </td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>2019.11.15</td>
+        <td>上海胸科医院呼吸内科专家门诊： <br>
+          联合安罗替尼(用二停一：2019.11.15-2020.1.8)</td>
+        <td>阿来+安罗 </td>
+        <td>安罗替尼8周 </td>
+      </tr>
+      <tr>
+        <td>2020.1.8</td>
+        <td>术前停用阿来替尼(2019.2.26-2020.1.8)<a name="_GoBack"></a></td>
+        <td>&nbsp;</td>
+        <td>阿来替尼9个月10天 </td>
+      </tr>
+      <tr>
+        <td>2020.1.10</td>
+        <td>上海胸科医院肿瘤外科手术治疗 </td>
+        <td>胸腔镜手术 </td>
+        <td>右肺上叶切除 </td>
+      </tr>
+      <tr>
+        <td>2020.2.7</td>
+        <td>术后基因检测结果EML4-ALK融合突变， <br>
+          未检测到耐药基因。 </td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>2020.2.19</td>
+        <td>术后转呼吸内科术后化疗，培美卡铂方案4次 <br>
+          4周一次（2020.2.19-2020.6.8） </td>
+        <td>化疗 </td>
+        <td>化疗4个月 </td>
+      </tr>
+      <tr>
+        <td>2020.6.8</td>
+        <td>术后化疗结束，继续阿来替尼靶向治疗 </td>
+        <td>阿来替尼 </td>
+        <td>阿来替尼7.5个月 </td>
+      </tr>
+      <tr>
+        <td>2021.6</td>
+        <td>肿标/CEA超出上限值缓慢升高&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;2021.8.24</td>
+        <td>&nbsp;上海全景PET/CT，纵隔4R高吸值，其他相仿。</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;2021.8.30</td>
+        <td>&nbsp;上海胸科医院EBUS，4R活检</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;2021.09.09</td>
+        <td>&nbsp;燃石基因检测，ALK融合，未检测到耐药点位</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;CEA继续缓慢增长</td>
+      </tr>
+      <tr>
+        <td>&nbsp;2021.11.09</td>
+        <td>&nbsp;华山医院射波刀治疗</td>
+        <td>&nbsp;射波刀</td>
+        <td>&nbsp;2021.12.27 CEA检测首次下降</td>
+      </tr>
+      <tr>
+        <td>&nbsp;2022.2.7</td>
+        <td>&nbsp;华山医院射波刀治疗/二次</td>
+        <td>&nbsp;射波刀</td>
+        <td>&nbsp;2022.4.4 CEA降低至正常范围</td>
+      </tr>
+      <tr>
+        <td>&nbsp;2022.11.2</td>
+        <td>&nbsp; 上海全景PET/CT，检查正常，无异常吸收值</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;2022.12.20</td>
+        <td>&nbsp;阿来替尼至今1394D，46M，3.8Y</td>
+        <td>&nbsp;阿来替尼</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;2023.12</td>
+        <td>&nbsp;随访治疗第5年</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;阿来替尼58M，确诊60M</td>
+      </tr>
+      <tr>
+        <td>&nbsp;2024.03</td>
+        <td>&nbsp;随访发现CEA缓慢升高， CT左肺下叶背段新发实性小结节</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;2024.5.9</td>
+        <td>&nbsp;上海全景PET/CT</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;2024.6.3</td>
+        <td>&nbsp;上海胸科医院胸腔镜手术</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;微创手术，左下叶背段楔切</td>
+      </tr>
+      <tr>
+        <td>&nbsp;2024.7.3</td>
+        <td>&nbsp;病理报告和基因检测报告：G1202R耐药</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>阿来替尼靶向治疗</td>
+        <td>阿来替尼600mg bid</td>
+        <td>持续用药中</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 </body>
 </html>
