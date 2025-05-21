@@ -53,8 +53,8 @@
  .vertical-menu li > a:hover {
     color: #FFF;
 }
-/* 一级菜单单选按钮 */
- .vertical-menu > ul > li > input[type="radio"] {
+/* 一级菜单单选按钮 将 type="radio"单选不可折叠 改为 type="checkbox"可折叠*/
+ .vertical-menu > ul > li > input[type="checkbox"] {
      position: absolute;
      opacity: 0;
      z-index: -1;
