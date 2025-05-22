@@ -3,7 +3,7 @@ const config = {
   siteTitle: "hello，老张...",
   pages: {
     "index.html": "首页",
-    "about.html": "关于我们",
+    "home.html": "主页",
     "contact.html": "联系我们"
   }
 };
