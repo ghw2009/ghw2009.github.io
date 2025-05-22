@@ -1,6 +1,6 @@
 <!-- 创建一个shared.js文件 -->
 const config = {
-  siteTitle: "hello，老张...",
+  siteTitle: "Hi，老张...",
   pages: {
     "index.html": "首页",
     "home.html": "主页",
