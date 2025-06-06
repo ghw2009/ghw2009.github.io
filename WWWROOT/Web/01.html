@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap 5 多级可折叠菜单</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        /* 自定义样式 */
+        .navbar-dark .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.85);
+        }
+        .navbar-dark .navbar-nav .nav-link:hover,
+        .navbar-dark .navbar-nav .nav-link:focus {
+            color: white;
+        }
+        .dropdown-toggle::after {
+            transition: transform 0.2s ease;
+        }
+        .dropdown-toggle[aria-expanded="true"]::after {
+            transform: rotate(180deg);
+        }
+        .submenu-arrow::after {
+            display: inline-block;
+            margin-left: 0.255em;
+            vertical-align: 0.255em;
+            content: "";
+            border-top: 0.3em solid;
+            border-right: 0.3em solid transparent;
+            border-bottom: 0;
+            border-left: 0.3em solid transparent;
+            float: right;
+            margin-top: 0.8em;
+        }
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+        .dropdown-item:hover, .dropdown-item:focus {
+            background-color: #f8f9fa;
+            color: #0d6efd;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fa fa-home mr-2"></i>网站首页
+            </a>
+            
+            <!-- 移动端汉堡菜单按钮 -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- 导航菜单 -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <!-- 一级菜单 - 首页 -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fa fa-home mr-1"></i>首页
+                        </a>
+                    </li>
+                    
+                    <!-- 一级菜单 - 产品中心 -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-cubes mr-1"></i>产品中心
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="productsDropdown">
+                            <!-- 二级菜单 -->
+                            <li><a class="dropdown-item" href="#">
+                                <i class="fa fa-laptop mr-1"></i>电子产品
+                            </a></li>
+                            
+                            <li><a class="dropdown-item" href="#">
+                                <i class="fa fa-car mr-1"></i>汽车配件
+                            </a></li>
+                            
+                            <!-- 二级菜单 - 带三级菜单 -->
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle submenu-arrow" href="#" id="clothingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-shopping-bag mr-1"></i>服装鞋帽
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="clothingDropdown">
+                                    <!-- 三级菜单 -->
+                                    <li><a class="dropdown-item" href="#">
+                                        <i class="fa fa-male mr-1"></i>男士服装
+                                    </a></li>
+                                    <li><a class="dropdown-item" href="#">
+                                        <i class="fa fa-female mr-1"></i>女士服装
+                                    </a></li>
+                                    <li><a class="dropdown-item" href="#">
+                                        <i class="fa fa-child mr-1"></i>儿童服装
+                                    </a></li>
+                                </ul>
+                            </li>
+                            
+                            <li><a class="dropdown-item" href="#">
+                                <i class="fa fa-book mr-1"></i>图书音像
+                            </a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- 一级菜单 - 解决方案 -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="solutionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-puzzle-piece mr-1"></i>解决方案
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="solutionsDropdown">
+                            <!-- 二级菜单 -->
+                            <li><a class="dropdown-item" href="#">
+                                <i class="fa fa-line-chart mr-1"></i>数据分析
+                            </a></li>
+                            <li><a class="dropdown-item" href="#">
+                                <i class="fa fa-cloud mr-1"></i>云服务
+                            </a></li>
+                            
+                            <!-- 二级菜单 - 带三级菜单 -->
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle submenu-arrow" href="#" id="securityDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-shield mr-1"></i>安全服务
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="securityDropdown">
+                                    <!-- 三级菜单 -->
+                                    <li><a class="dropdown-item" href="#">
+                                        <i class="fa fa-lock mr-1"></i>网络安全
+                                    </a></li>
+                                    <li><a class="dropdown-item" href="#">
+                                        <i class="fa fa-user-secret mr-1"></i>数据加密
+                                    </a></li>
+                                    <li><a class="dropdown-item" href="#">
+                                        <i class="fa fa-fire mr-1"></i>防火墙
+                                    </a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <!-- 一级菜单 - 关于我们 -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="aboutDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-info-circle mr-1"></i>关于我们
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                            <!-- 二级菜单 -->
+                            <li><a class="dropdown-item" href="#">
+                                <i class="fa fa-building mr-1"></i>公司简介
+                            </a></li>
+                            <li><a class="dropdown-item" href="#">
+                                <i class="fa fa-users mr-1"></i>团队介绍
+                            </a></li>
+                            <li><a class="dropdown-item" href="#">
+                                <i class="fa fa-map-marker mr-1"></i>联系我们
+                            </a></li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <!-- 右侧工具栏 -->
+                <div class="d-flex align-items-center">
+                    <a href="#" class="btn btn-outline-light btn-sm mr-2">
+                        <i class="fa fa-search mr-1"></i>搜索
+                    </a>
+                    <a href="#" class="btn btn-outline-light btn-sm mr-2">
+                        <i class="fa fa-user mr-1"></i>登录
+                    </a>
+                    <a href="#" class="btn btn-outline-light btn-sm">
+                        <i class="fa fa-shopping-cart mr-1"></i>购物车
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- 页面内容 -->
+    <main class="container py-5">
+        <div class="jumbotron bg-light p-5 rounded">
+            <h1 class="display-4">欢迎使用多级可折叠菜单</h1>
+            <p class="lead">这个菜单在桌面和移动设备上都能提供出色的用户体验。</p>
+            <hr class="my-4">
+            <p>点击导航栏上的项目查看多级菜单结构，在移动设备上会自动转换为汉堡菜单。</p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">了解更多</a>
+        </div>
+        
+        <div class="row mt-5">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">响应式设计</h5>
+                        <p class="card-text">菜单会根据设备屏幕大小自动调整，在移动设备上转为汉堡菜单。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">多级结构</h5>
+                        <p class="card-text">支持无限层级的菜单结构，轻松展示复杂的导航关系。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">平滑动画</h5>
+                        <p class="card-text">菜单展开和折叠时使用平滑过渡动画，提升用户体验。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- 页脚 -->
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>关于我们</h5>
+                    <p>我们是一家专注于提供高品质产品和服务的公司，致力于为客户创造更大价值。</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>联系我们</h5>
+                    <p>电话：400-123-4567</p>
+                    <p>邮箱：contact@example.com</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>关注我们</h5>
+                    <a href="#" class="text-light mr-3"><i class="fa fa-weixin fa-lg"></i></a>
+                    <a href="#" class="text-light mr-3"><i class="fa fa-weibo fa-lg"></i></a>
+                    <a href="#" class="text-light"><i class="fa fa-qq fa-lg"></i></a>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-12 text-center">
+                    <p>&copy; 2025 公司名称 版权所有</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 多级菜单支持
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取所有下拉菜单
+            const dropdownItems = document.querySelectorAll('.dropdown-submenu .dropdown-toggle');
+            
+            // 为每个下拉菜单项添加点击事件
+            dropdownItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    // 阻止事件冒泡，避免触发父级菜单的关闭
+                    e.stopPropagation();
+                    
+                    // 获取当前下拉菜单的子菜单
+                    const submenu = this.nextElementSibling;
+                    
+                    // 切换子菜单的显示/隐藏状态
+                    if (submenu.classList.contains('show')) {
+                        submenu.classList.remove('show');
+                    } else {
+                        submenu.classList.add('show');
+                    }
+                });
+            });
+            
+            // 点击页面其他区域关闭所有下拉菜单
+            document.addEventListener('click', function(e) {
+                document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
+                    // 检查点击是否发生在菜单内部
+                    if (!menu.contains(e.target)) {
+                        menu.classList.remove('show');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+    
