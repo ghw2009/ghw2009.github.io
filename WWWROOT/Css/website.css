@@ -1,21 +1,71 @@
-@charset "utf-8";/* CSS Document */
- * {
-     margin: 0;
-     padding: 0;
-     box-sizing: border-box;
+@charset "utf-8"; /* CSS Document */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
- body, html {
-     height: 100%;
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* 防止整个页面出现滚动条 */
 }
-/* 响应式设计 - 小屏幕时改为上下布局 */
-@media (max-width: 768px) 
-{
+/* 添加一些自定义样式增强美观性 */
+body {
+  background-color: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 .container {
-         flex-direction: column;
-    }
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  min-height: 100vh;
+}
 .left-panel {
-         width: 100%;
-         border-right: none;
-         border-bottom: 1px solid #ccc;
-    }
+  width: 300px;
+  background-color: #343a40;
+  color: white;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+/* 左侧引用框架便于引用外部文件，使主页代码简介易读 */
+.left-panel iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.right-panel {
+  flex: 1;
+  padding: 0px;
+  background-color: #f8f9fa;
+}
+main.video {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+  height: calc(100vh - 0px);
+  overflow: hidden;
+}
+main.video iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+}
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .left-panel {
+    width: 100%;
+    height: 60px;
+  }
+  .right-panel {
+    padding: 15px;
+  }
+  main.video {
+    height: calc(100vh - 100px);
+  }
 }
