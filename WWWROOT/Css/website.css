@@ -26,7 +26,7 @@ body {
   width: 300px;
   background-color: #343a40;
   color: white;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 0 1px rgba(0, 0, 0, 0.1);
   z-index: 1000;
 }
 /* 左侧引用框架便于引用外部文件，使主页代码简介易读 */
@@ -42,8 +42,8 @@ body {
 }
 main.video {
   background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+  border-radius: 2px;/*设置圆角*/
+  box-shadow: 0 rgba(0, 0, 0, 0.05);
   height: calc(100vh - 0px);
   overflow: hidden;
 }
@@ -63,9 +63,9 @@ main.video iframe {
     height: 60px;
   }
   .right-panel {
-    padding: 15px;
+    padding: 0px;
   }
   main.video {
-    height: calc(100vh - 100px);
+    height: calc(100vh - 0px);
   }
 }
