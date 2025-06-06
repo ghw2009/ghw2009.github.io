@@ -1,31 +1,43 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<title></title>
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
-<script src="../Js/check.js"></script>
-<link rel="stylesheet" href="../Css/website.css">
-<!-- 外部全局样式 -->
-<link rel="stylesheet" href="../Css/index.css">
-<!-- 外部主页样式 -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    
+    <!-- Bootstrap CSS -->
+    <link href="../Css/bs_css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- 自定义CSS -->
+    <link rel="stylesheet" href="../Css/website.css">
 </head>
 
 <body>
-<div class="container"> 
-  <!---------------------------------------------------- 引用外部左侧页面 -------------------------------------------->
-  <div class="left-panel">
-    <iframe src="caidan.html" title="caidan"></iframe>
-  </div>
-  <!------------------------------------------------------- 右侧开始 ------------------------------------------------>
-  <div class="right-panel">
-    <main class="video">
-      <iframe name="main" src="main.html" style="width: 100%; height: 100%;"></iframe>
-    </main>
-  </div>
-  <!------------------------------------------------------- 右侧结束 ------------------------------------------------> 
-</div>
+    <div class="container"> 
+        <!---------------------------------------------------- 左侧导航栏 -------------------------------------------->
+        <div class="left-panel">
+            <iframe src="menu.html" title="菜单"></iframe>
+        </div>
+        
+        <!------------------------------------------------------- 右侧内容区 ------------------------------------------------>
+        <div class="right-panel">
+            <main class="video p-3">
+                <iframe name="main" src="main.html" class="shadow-sm"></iframe>
+            </main>
+        </div>
+    </div>
+    
+    <!------------------------------------------------------- 引用文件 ------------------------------------------------> 
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="../Js/bs_js/bootstrap.bundle.min.js"></script>
+    
+    <!-- 自定义JS -->
+    <script src="../Js/check.js"></script>
+    <script src="../Js/title.js"></script>
+	<script>setDocumentTitle();</script>
 </body>
-<script src="../Js/title.js"></script><!-- 统一标题，引用JS，放在每个页面底部 -->
-<script>setDocumentTitle();</script>
 </html>
